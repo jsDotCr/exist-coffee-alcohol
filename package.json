@@ -1,0 +1,53 @@
+{
+  "name": "exist-sxe",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://functions.lib.id/jsDotCr/sxe",
+  "dependencies": {
+    "@types/isomorphic-fetch": "0.0.34",
+    "@types/react": "^16.0.31",
+    "@types/react-dom": "^16.0.3",
+    "chalk": "^2.3.0",
+    "dotenv": "^4.0.0",
+    "form-data": "^2.3.1",
+    "isomorphic-fetch": "^2.2.1",
+    "lib.cli": "^4.0.1",
+    "lodash.camelcase": "^4.3.0",
+    "node-sass": "^4.7.2",
+    "npm-run-all": "^4.1.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "typescript": "^2.6.2",
+    "yargs": "^10.0.3"
+  },
+  "scripts": {
+    "start:client": "node -r dotenv/config node_modules/.bin/parcel public/index.html",
+    "start:server": "nodemon --exec 'cd jsDotCr/sxe && ../../node_modules/.bin/lib http' --watch jsDotCr/sxe",
+    "build:client": "node -r dotenv/config node_modules/.bin/parcel build public/index.html --out-dir jsDotCr/sxe/client --public-url ./",
+    "build:server:dev": "cd jsDotCr/sxe && ../../node_modules/.bin/lib up dev",
+    "test": "standard",
+    "start": "run-p start:client start:server",
+    "deploy:dev": "run-s build:client build:server:dev"
+  },
+  "devDependencies": {
+    "eslint-plugin-typescript": "^0.8.1",
+    "nodemon": "^1.14.7",
+    "parcel-bundler": "^1.4.1",
+    "standard": "^10.0.3",
+    "typescript-eslint-parser": "^11.0.0"
+  },
+  "standard": {
+    "ignore": [
+      "jsDotCr/sxe/client/**",
+      "jsDotCr/sxe/node_modules/**"
+    ],
+    "parser": "typescript-eslint-parser",
+    "plugins": [
+      "typescript"
+    ]
+  }
+}

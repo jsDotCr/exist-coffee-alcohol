@@ -32,13 +32,15 @@
     "deploy": "run-s build:client build:server",
     "test": "standard",
     "start": "SXE_ENV=local run-p start:client start:server",
-    "deploy:dev": "SXE_ENV=dev npm run deploy"
+    "deploy:dev": "SXE_ENV=dev npm run deploy",
+    "release": "standard-version"
   },
   "devDependencies": {
     "eslint-plugin-typescript": "^0.8.1",
     "nodemon": "^1.14.7",
     "parcel-bundler": "^1.4.1",
     "standard": "^10.0.3",
+    "standard-version": "^4.3.0",
     "typescript-eslint-parser": "^11.0.0"
   },
   "standard": {

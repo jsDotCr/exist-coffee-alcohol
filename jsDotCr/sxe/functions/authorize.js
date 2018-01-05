@@ -7,8 +7,8 @@ const { URL } = require('url')
 const debug = Debug('sxe:authorize')
 
 const { accessTokenUrl } = require('../../../src/config')
-debug(accessTokenUrl)
 const url = new URL(accessTokenUrl)
+debug(accessTokenUrl)
 
 async function getToken (code) {
   try {

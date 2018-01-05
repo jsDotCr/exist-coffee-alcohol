@@ -45,7 +45,6 @@ export class Connect extends React.Component<ConnectProps, {}> {
 }
 
 function mapStateToProps (state) {
-  console.log(state.exist)
   return {
     hasToken: !!state.exist.accessToken,
     url: state.exist.authorizeUrl

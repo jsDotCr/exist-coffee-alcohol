@@ -6,6 +6,10 @@ import { apiCall } from '../api'
 export const initialState: {
   error: boolean,
   isFetching: boolean,
+  acquiredAttributes: {
+    success: any[],
+    failed: any[]
+  },
   accessToken?: string,
   authorizeUrl: string,
   refreshToken?: string,
@@ -16,6 +20,10 @@ export const initialState: {
 } = {
   error: false,
   isFetching: false,
+  acquiredAttributes: {
+    success: [],
+    failed: []
+  },
   accessToken: null,
   authorizeUrl: authorizeAppUrl,
   refreshToken: null,
@@ -45,14 +53,21 @@ export function exchangeCodeForToken (code: string) {
     })
 }
 
-const FETCH_CODE_ERROR = 'exist/FETCH_CODE_ERROR'
-export function fetchCodeError (error: Error) {
-  return {
-    error: true,
-    payload: error,
-    meta: {},
-    type: FETCH_CODE_ERROR
-  }
+const LIST_OWNED_ATTRIBUTES_REQUEST = 'exist/LIST_OWNED_ATTRIBUTES_REQUEST'
+const LIST_OWNED_ATTRIBUTES_RESPONSE = 'exist/LIST_OWNED_ATTRIBUTES_RESPONSE'
+const LIST_OWNED_ATTRIBUTES_ERROR = 'exist/LIST_OWNED_ATTRIBUTES_ERROR'
+export function listOwnedAttributes () {
+  return (dispatch: (action: Action) => void) =>
+    apiCall({
+      dispatch,
+      onRequest: LIST_OWNED_ATTRIBUTES_REQUEST,
+      onSuccess: LIST_OWNED_ATTRIBUTES_RESPONSE,
+      onError: LIST_OWNED_ATTRIBUTES_ERROR,
+      url: clientRequestTokenUrl,
+      options: {
+        method: 'GET'
+      }
+    })
 }
 
 // Reducer

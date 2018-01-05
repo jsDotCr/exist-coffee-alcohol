@@ -7,3 +7,5 @@ And eventually parcel took over the whole SPA on the client side.
 Won't get more bleeing edge than this.
 
 Maybe.
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/jsDotCr/exist-sXe.svg)](https://greenkeeper.io/)

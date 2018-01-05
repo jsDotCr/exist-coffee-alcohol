@@ -5,7 +5,7 @@
   "homepage": "https://functions.lib.id/jsDotCr/sxe",
   "dependencies": {
     "@types/isomorphic-fetch": "0.0.34",
-    "@types/react": "^16.0.31",
+    "@types/react": "^16.0.34",
     "@types/react-dom": "^16.0.3",
     "chalk": "^2.3.0",
     "dotenv": "^4.0.0",
@@ -28,10 +28,11 @@
     "start:client": "node -r dotenv/config node_modules/.bin/parcel public/index.html",
     "start:server": "nodemon --exec 'cd jsDotCr/sxe && ../../node_modules/.bin/lib http' --watch jsDotCr/sxe",
     "build:client": "node -r dotenv/config node_modules/.bin/parcel build public/index.html --out-dir jsDotCr/sxe/client --public-url ./",
-    "build:server:dev": "cd jsDotCr/sxe && ../../node_modules/.bin/lib up dev",
+    "build:server": "cd jsDotCr/sxe && ../../node_modules/.bin/lib up ${SXE_ENV:-dev}",
+    "deploy": "run-s build:client build:server",
     "test": "standard",
-    "start": "run-p start:client start:server",
-    "deploy:dev": "run-s build:client build:server:dev"
+    "start": "SXE_ENV=local run-p start:client start:server",
+    "deploy:dev": "SXE_ENV=dev npm run deploy"
   },
   "devDependencies": {
     "eslint-plugin-typescript": "^0.8.1",

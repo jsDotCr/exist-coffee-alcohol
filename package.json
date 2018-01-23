@@ -22,7 +22,7 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "typescript": "^2.6.2",
-    "yargs": "^10.0.3"
+    "yargs": "^11.0.0"
   },
   "scripts": {
     "start:client": "node -r dotenv/config node_modules/.bin/parcel public/index.html",

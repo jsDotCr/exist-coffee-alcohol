@@ -41,7 +41,7 @@
     "parcel-bundler": "^1.4.1",
     "standard": "^10.0.3",
     "standard-version": "^4.3.0",
-    "typescript-eslint-parser": "^11.0.0"
+    "typescript-eslint-parser": "^15.0.0"
   },
   "standard": {
     "ignore": [
